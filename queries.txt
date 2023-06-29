@@ -1,0 +1,16 @@
+Relação de produtos por Fornecedor
+
+select f.nome, p.nome, p.preco from produto_fornecedor fn
+inner join produto p on p.idProduto = fn.idProduto
+INNER join fornecedor f on f.idFornecedor = fn.idFornecedor 
+order by f.nome asc
+
+
+Pedidos existentes
+
+select c.nome, p.nome, p.preco, pd.status
+from pedido_produto pp
+INNER join pedido pd on pd.idPedido = pp.idPedido
+inner join produto p on p.idProduto = pp.idProduto
+INNER join cliente c on c.idCliente = pd.idCliente
+order by c.nome;
